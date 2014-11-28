@@ -1,4 +1,4 @@
 fokus
 =====
 
-A debug tool, to determine what element is in focus
+A debug tool that determines what element is in focus
