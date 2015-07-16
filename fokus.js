@@ -35,13 +35,10 @@
             html += ' ' + attrs[i].name + '="' + attrs[i].value + '"';
 	      }
 
-        var sOutput = '<' + el.nodeName.toLowerCase() + html + '>' + truncate(el.textContent.trim());
-
-	      if('textContent' in document.body) {
-	      	active.textContent = sOutput;
-        } else {
-          active.innerText = sOutput; //Support browsers <= IE8
-        }
+        var content = ('textContent' in document.body) ? 'textContent' : 'innerText';
+        var sOutput = '<' + el.nodeName.toLowerCase() + html + '>' + truncate(el[content].trim());
+        
+        active[content] = sOutput;
 
 	      lastActive = el;
 	    }
